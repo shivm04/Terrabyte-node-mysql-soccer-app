@@ -22,6 +22,7 @@ mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'shivam@123';
 FLUSH PRIVILEGES;
 
+```
 CREATE DATABASE socka;
 USE socka;
 CREATE TABLE IF NOT EXISTS `players` (
@@ -34,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `players` (
     `user_name` varchar(20) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+```
 
 ## Change the username & password in the app.js file and then run the Project by using the below command 
 nodemon app.js
@@ -41,7 +43,7 @@ nodemon app.js
 ## Then make the Node ja service permanentlly running 
 
 sudo vi /etc/systemd/system/soccer-app.service
-
+```
 [Unit]
 Description=My Node.js Application
 After=network.target
@@ -57,7 +59,7 @@ Environment=NODE_ENV=production
 
 [Install]
 WantedBy=multi-user.target
-
+```
 
 sudo systemctl daemon-reload
 sudo systemctl start soccer-app
@@ -65,7 +67,7 @@ sudo systemctl enable soccer-app
 
 
 ## Nginx Configuration for this
-'''
+```
 server {
     listen 80;
     server_name soccer.shivm07.shop;
@@ -82,7 +84,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }
-'''
+```
 
 sudo ln -s /etc/nginx/sites-available/soccer.shivm07.shop /etc/nginx/sites-enabled/
 nginx -t
