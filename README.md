@@ -65,7 +65,7 @@ sudo systemctl enable soccer-app
 
 
 ## Nginx Configuration for this
-
+'''
 server {
     listen 80;
     server_name soccer.shivm07.shop;
@@ -82,6 +82,7 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }
+'''
 
 sudo ln -s /etc/nginx/sites-available/soccer.shivm07.shop /etc/nginx/sites-enabled/
 nginx -t
